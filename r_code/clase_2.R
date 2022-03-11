@@ -1,7 +1,7 @@
 
 # Clase 2 -----------------------------------------------------------------
 # 10/03/2022 --------------------------------------------------------------
-
+library(tidyverse)
 
 # Ejemplo data.frame ------------------------------------------------------
 
@@ -27,13 +27,20 @@ Cat 2 67 43
 Cat 3 45 32', header = TRUE
 )
 
-D
+str(D)
 
 Mmes = aggregate(D[, 3:4], list(D$Mes), mean)
 DSmes = aggregate(D[, 3:4], list(D$Mes),sd)
 
 (Cv = DSmes/Mmes)
 
+mean2 <- D %>% 
+  group_by(Mes) %>% 
+  summarize(mean=mean(Rate1), mean2=mean(Rate2))
+sd2 <- D %>% 
+  group_by(Mes) %>% 
+  summarize(sd=sd(Rate1), sd2=sd(Rate2))
+sd2/mean2
 
 # Concepto de listas ------------------------------------------------------
 
@@ -76,5 +83,33 @@ axis.Date(1, at=ejex.mes, format='%m/%y')
 axis.Date(1, at=ejex.ano, labels=FALSE, tcl=-0.2)
 
 hist(V3, 15)
+
+detach(G)
+
+dev.off()
+
+
+# Lecura de archivos de Excel ---------------------------------------------
+library(readxl)
+
+res <- read_excel("ejemplos/international-petroleum-world-cr.xlsx")
+head(res)
+
+str(res)
+
+
+# escritura de datos ------------------------------------------------------
+library(MASS)
+write.matrix()
+
+
+
+y <- structure(
+  c(1,2,3,4,4,5)
+)
+str(y)
+
+
+
 
 

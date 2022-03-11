@@ -10,19 +10,19 @@ np = length(V1)
 
 fechas = seq(as.Date("2000/1/1"), by = "month", length.out = length(V1))
 ejex.mes = seq(fechas[1],fechas[np], "months")
-ejex.año = seq(fechas[1],fechas[np],"years")
+ejex.a?o = seq(fechas[1],fechas[np],"years")
 
 plot(fechas,V2, xaxt="n", panel.first = grid(),
 type='h',ylab='produccion.diaria',lwd=2)
 axis.Date(1, at=ejex.mes, format="%m/%y")
-axis.Date(1, at=ejex.año, labels = FALSE, tcl = -0.2)
+axis.Date(1, at=ejex.a?o, labels = FALSE, tcl = -0.2)
 
 par(mfrow=c(2,1))
 
 plot(fechas,V1, xaxt="n", panel.first = grid(),
 type='b',ylab='produccion.diaria')
 axis.Date(1, at=ejex.mes, format="%m/%y")
-axis.Date(1, at=ejex.año, labels = FALSE, tcl = -0.2)
+axis.Date(1, at=ejex.a?o, labels = FALSE, tcl = -0.2)
 
 hist(V3,15)
 
